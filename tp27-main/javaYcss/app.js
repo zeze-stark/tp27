@@ -29,13 +29,15 @@ $(document).ready(function () {
               swal.fire({
                 icon: "error",
                 title: "usuario y/o password incorrecta",
+                
               });
             } else {
               swal
                 .fire({
                   icon: "success",
-                  title: "Conexion Exitosa",
-                  confirmButtonText: "Ingresar",
+                  title: "Conexion Exitosa, Ingresando",
+                  showConfirmButton: false,
+                  timer:1000
                 })
                 .then((result) => {
                   if (result.isConfirmed) {

@@ -29,14 +29,16 @@ $("#formRegistro").submit(function (e) {
           if (data == "") {
             swal.fire({
               icon: "error",
-              title: "usuario ya registrado",
+              title: "usuario ya registrado, Ingrese otro nombre",
+              timer:2000,
             });
           } else {
             swal
               .fire({
                 icon: "success",
                 title: "Conexion Exitosa",
-                confirmButtonText: "Ingresar",
+                showConfirmButton: false,
+                timer:1500,
               })
               .then((result) => {
                 if (result.isConfirmed) {
