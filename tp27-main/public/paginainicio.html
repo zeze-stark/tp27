@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>GOLB FINAL</title>
+
+<!--=====================================
+	PLUGINS DE CSSvistas/
+	======================================-->
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Chewy|Open+Sans:300,400" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" 
+    integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
+	<!-- JdSlider -->
+	<!-- https://www.jqueryscript.net/slider/Carousel-Slideshow-jdSlider.html -->
+
+<!--=====================================
+	PLUGINS DE JS
+	======================================-->
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+	<!-- JdSlider -->
+	<!-- https://www.jqueryscript.net/slider/Carousel-Slideshow-jdSlider.html -->
+	
+
+</head>
+
+
+<body>
+
+    <header class="container-fluid">
+        <div class="container p-0">       
+            <div class="row">
+                
+                <!-- LOGO -->
+                <div class="col-10 col-sm-11 col-md-8 pt-1 pt-lg-3 p-xl-0">        
+                        <img src="LINK DE LA IMAGEN PEGAR ACA" alt="FOTO DE GOLB" class="img-fluid logotipo">
+                    </a>
+                </div>
+    
+                <!-- REDES SOCIALES -->
+                <div class="d-none d-md-block col-md-2 redes">
+                    
+                    <ul class="d-flex justify-content-end pt-3 mt-1">
+                        <li>  <a href="https://www.facebook.com/" target="_blank">
+                                            <i class="fab fa-facebook-f lead rounded-circle text-white mr-1"></i>
+                                            
+                                        </a>  </li>  </ul>
+                </div>
+    
+                <!-- BUSCADOR Y BOTÓN MENÚ -->
+                <div class="col-2 col-sm-1 col-md-2 d-flex justify-content-end pt-3 mt-1">
+                    
+                    <!-- BUSCADOR -->
+                    <div class="d-none d-md-block pr-4 pr-lg-5 mt-1">
+                        <i class="fas fa-search lead" data-toggle="collapse" data-target="#buscador"></i>
+                    </div>	
+
+                    <!-- BOTÓN MENÚ -->
+                    <div class="m-0 mt-sm-1 mt-md-0 pr-0 pr-sm-2 pr-lg-3">
+                        <i class="fas fa-bars lead"></i>
+                    </div>              
+                </div>
+
+                <!-- ENTRADA DEL BUSCADOR -->
+    
+                <div id="buscador" class="collapse col-12">
+                    
+                    <div class="input-group float-right w-50 pl-xl-5 pb-3"> 
+                        <input type="text" class="form-control buscador text-lowercase" placeholder="Buscar">
+                        <div class="input-group-append">   
+                            <span class="input-group-text bg-primary border-0" style="cursor:pointer">   
+                                <i class="fas fa-search buscar"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<BR></BR>
+
+<!--=====================================
+CONTENIDO INICIO
+======================================-->
+
+<div class="container-fluid bg-white contenidoInicio pb-4">
+
+	<div class="container">
+
+		<div class="row">
+
+<!----------- COLUMNA IZQUIERDA -->
+
+			<div class="col-12 col-md-8 col-lg-9 p-0 pr-lg-5">
+
+<!------------------
+                    ARTÍCULOs -->
+
+					<div class="row">
+						<div class="col-12 col-lg-5">
+						<a href="http://localhost/phpmyadmin/index.php?route=/sql&db=blog&table=posts&pos=0">
+                        <img src=" LINK IMAGEN DEL BLOG INSERTAR" alt="TITULO DEL BLOG" class="img-fluid" width="100%">
+                        </a>
+                        </div>
+
+
+						<div class="col-12 col-lg-7 introArticulo">
+							<a href="http://localhost/phpmyadmin/index.php?route=/sql&db=blog&table=posts&pos=0">
+								<h4 class="d-none d-lg-block">TITULO DEL BLOG POSTEADO</h4>
+							</a>
+							<div class="fecha">FECHA DEL POSTEO</div>
+						</div>
+					</div>
+
+
+
+				<hr class="mb-4 mb-lg-5" style="border: 1px solid #79FF39">
+				<hr class="mb-4 mb-lg-5" style="border: 1px solid #79FF39">
+				<div class="container d-none d-md-block">
+
+					<ul class="pagination justify-content-center" totalPaginas ="12" paginaActual="1" rutaPagina></ul>
+				</div>
+			</div>
+
+<!--------------- 
+                COLUMNA DERECHA -->
+			<div class="d-none d-md-block pt-md-4 pt-lg-0 col-md-4 col-lg-3">
+<!--------------
+                SOBRE MI -->
+				<div class="sobreMi">
+					
+					<h4><a href="#">Sobre Mi</a></h4>
+					<img src="https://fmn.unsl.edu.ar/wp-content/uploads/2023/05/banner-ok-argentina-programa-1030x335.jpg" 
+                    alt="Lorem ipsum dolor sit amet" class="img-fluid my-1">  
+<!------ NOSE COMO ACHICAR AL IMAGEN, ALGO ESTOY HACIENDO MAL ASI QUE DEJE TODO SIN MODIFICAR-->
+					<p class="small">SOMOS 3 ESTUDIANTES DE ARGENTINA PROGRAMA 4.0, HACIENDO UN BLOG PARA EL TRABAJO FINAL DE LA ULTIMA CLASE</p>
+				</div>
+
+
+                
+<!--------------
+                 Artículos destacados -->
+                <div class="col-10 col-sm-11 col-md-8 pt-1 pt-lg-3 p-xl-0">
+				<div class="my-4">
+					<h4>Artículos Destacados</h4>					 
+						<div class="d-flex my-3">
+							<div class="w-100 w-xl-50 pr-3 pt-2">
+								<a href="LINK DEL POSTEO">
+									<img src="LINK IMAGEN DEL ULTIMO POSTEO"  alt="ULTIMO POSTEO" class="img-fluid">
+								</a>
+							</div>
+							<div>
+								<a href="LINK ULTIMO POSTEO" class="text-secondary">
+									<p class="small"> <!--ACA PODRIA IR UN TEXTO-->  </p>
+								</a>
+							</div>
+						</div>
+					 	
+                    </div>  
+                </div>   
+            </div>
+	
+     </div>
+</div>
+
+<!--=====================================
+MENU
+======================================-->
+
+<div class="container-fluid menu">
+
+	<a href="#" class="btnClose">X  ACA HAY CONTENDIO, SI TUVIESE ALGUNO</a>
+
+	<ul class="nav flex-column text-center">
+
+					
+			<li class="nav-item">
+
+				<a class="nav-link text-white" href="http://localhost/phpmyadmin/index.php?route=/sql&db=blog&table=posts&pos=0"> UN TITULO por favor</a>
+
+			</li>
+
+					
+		  <!-- ESE CIERRE DE PHP NO LE ENCONTRE SENTID ODE PORQUE ESTA NO SE SI SACARLO-->
+	</ul>
+
+</div>
+
+<!--=====================================
+FOOTER
+======================================-->
+
+<footer class="container-fluid py-5 d-none d-md-block">
+	
+	<div class="container">
+		
+		<div class="row">
+
+		<!-- GRID CATEGORÍAS FOOTER -->
+			
+			<div class="col-md-7 col-lg-6">
+				
+				<div class="p-1 bg-white gridFooter">
+
+					<div class="container p-0">
+
+						<div class="d-flex">
+
+							<div class="d-flex flex-column columna1">
+							
+							<!---ESPACIO PARA AGREGAR COSAS -->
+
+							</div>
+
+							<div class="d-flex flex-column flex-fill columna2">
+								<div class="d-block d-md-flex">								
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+
+			<div class="d-none d-lg-block col-lg-1 col-xl-2"></div>
+
+			<!-- NEWLETTER -->
+
+			<div class="col-md-17 col-lg-17 col-xl-16 pt-17">
+				
+				<h6 class="text-white">Inscríbite para postear:</h6>
+				<div class="input-group my-4">				
+					<input type="text" class="form-control" placeholder="Ingresa tu Email">
+                    <input type="text" class="form-control" placeholder="Ingresa tu password">
+					<div class="input-group-append">			
+						<span class="input-group-text bg-dark text-white">Registrarse</span>
+
+
+
+<!-- aca me falta poner el registrase al costado del rectangulo que toma los datos y capaz hacerlo mas grande
+me falta agregar lo link a registarse pero nose como hacerlo  -->
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>
+
+<!-- 
+
+<script src="< <!--LINK DEL SCRIP VA ACA NO LO TENGO TODAVIA >"></script>  
+
+-->
+
+</body>
+
+
+
+</html>
