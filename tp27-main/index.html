@@ -1,25 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 	<meta charset="UTF-8">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Blog del Curso PHP></title>
-
-		<meta name = "title" content="Blog del Curso PHP>">
-		<meta name = "description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores, quae officia impedit veniam tenetur. A id, qui eaque tenetur officia odit iure, obcaecati doloribus libero ipsam ea et provident prueba"><meta name = "keywords" content=juanito, travel, viajes, mochileros, vuelta al mundo, sudamerica, norteamerica, palabra"><meta property="og:site_name" content="Blog del viajero>
-		<meta property="og:title" content="Blog del Curso PHP">
-		<meta property="og:description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores, quae officia impedit veniam tenetur. A id, qui eaque tenetur officia odit iure, obcaecati doloribus libero ipsam ea et provident prueba">
-		<meta property="og:type" content="Type">
-		<meta property="og:image" content="public/vistas/img/articulo01.png">
-		<meta property="og:url" content="http://localhost/tp27-main/">
+	<meta name = "title" content="Blog del Curso PHP">
+	<meta name = "description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores, quae officia impedit veniam tenetur. A id, qui eaque tenetur officia odit iure, obcaecati doloribus libero ipsam ea et provident prueba"><meta name = "keywords" content=juanito, travel, viajes, mochileros, vuelta al mundo, sudamerica, norteamerica, palabra"><meta property="og:site_name" content="Blog del viajero"/>
+	<meta property="og:title" content="Blog del Curso PHP">
+	<meta property="og:description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores, quae officia impedit veniam tenetur. A id, qui eaque tenetur officia odit iure, obcaecati doloribus libero ipsam ea et provident prueba">
+	<meta property="og:type" content="Type">
+	<meta property="og:image" content="public/vistas/img/articulo01.png">
+	<meta property="og:url" content="http://localhost/tp27-main/">
 	<link rel="icon" href="public/vistas/img/icono.jpg">
-
-	<!--=====================================
-	PLUGINS DE CSSvistas/
-	======================================-->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -33,7 +26,7 @@
 	<link rel="stylesheet" href="public/vistas/css/plugins/jquery.jdSlider.css">
 
 		<!-- Alertas Notie -->
-		<link rel="stylesheet" href="public/vistas/css/plugins/notie.min.css">
+	<link rel="stylesheet" href="public/vistas/css/plugins/notie.min.css">
 
 
 	<link rel="stylesheet" href="public/vistas/css/style.css">
@@ -71,110 +64,108 @@
 </head>
 
 <body>
-
-
-	<footer class="container-fluid py-5 d-none d-md-block">	
-		<div class="container">	
-				<!-- Registro y loguin-->	
-				<div class="p-0 w-100 pt-2">
-					<form method="post">
-						<h6 class="text-white">Inscríbite o logueate para postear:</h6>
-						<div class="input-group my-4">		
-						
-							
-
-<!----------------------------
-	                           boton de login y registro-->	
-							<form id="fomrLogin" action="" method="post" class="p-3 my-lg-0">
-							<form id="fomrRegistro" action="" method="post" class="p-3 my-lg-0"></form>
-								<input type="text" name="usuario" id="usurio" class="form-control p-2 mt-3" placeholder="Usuario">
-								<input type="email" name="email" id="email" class="form-control p-2 mt-3" placeholder="Email">
-								<input type="password" name="password" id="password" class="form-control p-2 mt-3" placeholder="Contraseña">
-								<button type="submit" name="submit" class="btn btn-success btn-lg  btn-block" value="INGRESAR">INGRESAR</button>
-								
-								
-								<button type="submit" name="submit" class="input-group-text btn-success btn-lg bg-dark text-white" value="Registrarse"> Registrarse</button>
-							</form>
-							
-						
-						</form>	
-					</div>	
-				</div>	
-			</div>	
-		</div>	
-	</footer>
-
-
-<!--=====================================
-CABECERA
-======================================-->
-
-<header class="container-fluid">
-
-
-</header>
-
-<!--=====================================
-CONTENIDO INICIO
-======================================-->
+	<header class="container-fluid d-flex justify-content-between p-3 px-4">
+		<h3 class="text-light">Blog</h3>
+		<nav class="align-items-center logged">
+			<p class="text-light"> Bienvenido <b><span id="username"></span></b></p>
+			<button onclick="localStorage.removeItem('userBlog');window.location.href='./'" type="button" class="btn btn-danger mx-3">
+				Salir
+			</button>
+		</nav>
+		<nav class="align-items-center noLogged">
+			<button type="button" class="btn btn-dark mx-3" data-toggle="modal" data-target="#modalRegistro">
+				Registrarse
+			</button>
+			<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<form id="formRegistro" class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="usuario_registro">Usuario</label>
+								<input type="text" class="form-control" id="usuario_registro" name="usuario_registro" placeholder="Ingresa tu usuario...">
+							</div>
+							<div class="form-group">
+								<label for="email_registro">Email</label>
+								<input type="email" class="form-control" id="email_registro" name="email_registro"  placeholder="Ingresa tu email...">
+							</div>
+							<div class="form-group">
+								<label for="password_registro">Password</label>
+								<input type="password" class="form-control" id="password_registro" name="password_registro" placeholder="Ingresa tu clave...">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-success">Registrarse</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalLogin">
+				Iniciar Sesion
+			</button>
+			<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				<form id="formLogin" class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="usuario_login">Usuario</label>
+							<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Ingresa tu usuario...">
+						</div>
+						<div class="form-group">
+							<label for="password_login">Password</label>
+							<input type="password" class="form-control" id="password_login" name="password_login" placeholder="Ingresa tu clave...">
+						</div>
+					</div>
+					<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Ingresar</button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</nav>
+	</header>
 
 <div class="container-fluid bg-white contenidoInicio pb-4 mt-5">
-
 	<div class="container">
-
 		<div class="row">
-
-			<!-- COLUMNA IZQUIERDA -->
-
 			<div class="col-12 col-md-8 col-lg-9 p-0 pr-lg-5">
-
-									<!-- ARTÍCULOs -->
-
 					<div class="row">
-
 						<div class="col-12 col-lg-5">
-
 							<a href="asia/type-something-here-lorem60">
 								<h5 class="d-block d-lg-none py-3">Creando un Blog personal</h5>
-
-									<a href="public/document/PHP-Clase27-Ejercicio.docx.pdf"><img src="public/vistas/img/articulos/articulo-10/articulo10.jpg" alt="Titulo del Articulo 60" class="img-fluid" width="100%"></a>
-
+									<img src="public/vistas/img/articulos/articulo-10/articulo10.jpg" alt="Titulo del Articulo 60" class="img-fluid" width="100%" />
+								</a>
 						</div>
-
 						<div class="col-12 col-lg-7 introArticulo">
-
 							<a href="public/document/PHP-Clase27-Ejercicio.docx.pdf">
 								<h4 class="d-none d-lg-block">Creando un Blog personal</h4>
 							</a>
-
 							<p class="my-2 my-lg-5">Crear un blog en PHP utilizando Programación Orientada a Objetos es un
 								desafío emocionante y útil para cualquier desarrollador web que desee mejorar
 								sus habilidades de programación. La POO es una técnica de programación que
-								permite crear aplicaciones más organizadas, flexibles y escalables...</p>
-
+								permite crear aplicaciones más organizadas, flexibles y escalables...
+							</p>
 							<a href="public/document/PHP-Clase27-Ejercicio.docx.pdf" class="float-right">Leer Más</a>
-
 							<div class="fecha">26.10.2023</div>
-
 						</div>
-
-
 					</div>
-
 					<hr class="mb-4 mb-lg-5" style="border: 1px solid #79FF39">
-
-
-									<!-- ARTÍCULOs -->
-
 					<div class="row">
-
 						<div class="col-12 col-lg-5">
-
 							<a href="africa/type-something-here-lorem59">
 								<h5 class="d-block d-lg-none py-3">Type something here lorem 59</h5>
-
 									<a href="<africa/type-something-here-lorem59"><img src="public/vistas/img/articulos/articulo-09/articulo09.png" alt="Type something here lorem 59" class="img-fluid" width="100%"></a>
-
 						</div>
 
 						<div class="col-12 col-lg-7 introArticulo">
@@ -435,8 +426,10 @@ FOOTER
 </footer>
 
 <input type="hidden" id="rutaActual" value="">
+<script src="./javaYcss/appregistro.js"></script>
+<script src="./javaYcss/applogin.js"></script>
 <script src="public/vistas/js/script.js"></script>
-<script src="/tp27-main/javaYcss/app.js"></script>
+<script src="./javaYcss/app.js"></script>
 
 </body>
 </html>
