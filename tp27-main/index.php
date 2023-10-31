@@ -1,8 +1,10 @@
 <?php
 include("./classes/post.php");
+include("./classes/comment.php");
 include("./config/config.php");
 
 $post = new Post($db);
+$comments = new Comment($db);
 
 $arrPosts = $post->getPosts();
 
@@ -157,27 +159,53 @@ function formatDate($date)
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-8 col-lg-9 p-0 pr-lg-5">
-					<?php foreach ($arrPosts as $post) { ?>
+					<?php
+					$i = 0;
+					foreach ($arrPosts as $post) { ?>
+						<?php $arrComments = $comments->getCommentsForPost($post['id_post']); ?>
 						<div class="row">
 							<div class="col-12 col-lg-5">
 								<img src="public/vistas/img/articulos/articulo-10/articulo10.jpg" alt="Titulo del Articulo 60" class="img-fluid" width="100%" />
 							</div>
 							<div class="col-12 col-lg-7 introArticulo">
-								<a href="public/document/PHP-Clase27-Ejercicio.docx.pdf">
-									<h4 class="d-none d-lg-block"><?php echo $post['title']; ?></h4>
-								</a>
+								<h4 class="d-none d-lg-block"><?php echo $post['title']; ?></h4>
 								<p class="my-2 my-lg-5"><?php echo $post['content']; ?>
 								</p>
-								<a href="public/document/PHP-Clase27-Ejercicio.docx.pdf" class="float-right">Leer Más</a>
+								<button type="button" class="btn btn-dark mx-3" data-toggle="modal" data-target="#modalComentarios<?php echo $i; ?>">
+									Ver Comentarios
+								</button>
+								<div class="modal fade" id="modalComentarios<?php echo $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Comentarios</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<?php foreach ($arrComments as $comment) { ?>
+													<h4><?php echo $comment['author_id']; ?></h4>
+													<p><?php echo $comment['content']; ?></p>
+												<?php } ?>
+											</div>
+
+											<form class="formComentario modal-footer d-flex flex-row">
+												<input type="text" style="display:none;" id="postId" value="<?php echo $post['id_post']; ?>" />
+												<input type="text" name="comentario" id="comentario" class="form-control">
+												<button type="submit" class="btn btn-success">Enviar</button>
+											</form>
+
+										</div>
+									</div>
+								</div>
 								<div class="fecha"><?php formatDate($post['created_at']); ?></div>
 							</div>
 						</div>
 						<hr class="mb-4 mb-lg-5" style="border: 1px solid #79FF39">
-					<?php } ?>
-
-					<div class="container d-none d-md-block">
-						<ul class="pagination justify-content-center" totalPaginas="12" paginaActual="1" rutaPagina></ul>
-					</div>
+					<?php
+						$i++;
+					} ?>
 
 				</div>
 
@@ -214,41 +242,6 @@ function formatDate($date)
 							</div>
 						</div>
 
-						<div class="d-flex my-3">
-							<div class="w-100 w-xl-50 pr-3 pt-2">
-								<a href="centroamerica/type-something-here-lorem2">
-									<img src="public/vistas/img/articulos/articulo-02/articulo02.png" alt="Type something here lorem 2" class="img-fluid">
-								</a>
-							</div>
-							<div>
-								<a href="centroamerica/type-something-here-lorem2" class="text-secondary">
-									<p class="small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sed aperiam neque...</p>
-								</a>
-							</div>
-						</div>
-
-						<div class="d-flex my-3">
-							<div class="w-100 w-xl-50 pr-3 pt-2">
-								<a href="suramerica/type-something-here-lorem55">
-									<img src="public/vistas/img/articulos/articulo-05/articulo05.png" alt="Type something here lorem 55" class="img-fluid">
-								</a>
-							</div>
-							<div>
-								<a href="suramerica/type-something-here-lorem55" class="text-secondary">
-									<p class="small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sed aperiam neque...</p>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="my-4">
-						<img src="public/vistas/img/ad01.jpg" class="img-fluid">
-					</div>
-					<div class="my-4">
-						<img src="public/vistas/img/ad02.jpg" class="img-fluid">
-					</div>
-					<div class="my-4">
-						<img src="public/vistas/img/ad05.png" class="img-fluid">
 					</div>
 				</div>
 			</div>
@@ -293,9 +286,9 @@ function formatDate($date)
 	</footer>
 
 	<input type="hidden" id="rutaActual" value="">
-	<script src="./javaYcss/appregistro.js"></script>
+	<script src="./javaYcss/appcomentario.js"></script>
 	<script src="./javaYcss/applogin.js"></script>
-	<script src="public/vistas/js/script.js"></script>
+
 	<script src="./javaYcss/app.js"></script>
 
 </body>
